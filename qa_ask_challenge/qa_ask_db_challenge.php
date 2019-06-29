@@ -69,6 +69,21 @@ class qa_ask_challenge_db {
         if (!isset($tblNamePrefixed)){
             $db.query($this->qa_ask_challenge_db_table_definitions());
         }
+	    /*
+	    CREATE TABLE `q2a`.`qa_challenge` (
+  `postid` INT UNSIGNED NULL,
+  `accepter_email` VARCHAR(250) NOT NULL,
+  `accepted` TINYINT NULL DEFAULT 0,
+  `accepted_on` DATE NULL,
+  INDEX `fk_challenge_post_postid_idx` (`postid` ASC) VISIBLE,
+  CONSTRAINT `fk_challenge_post_postid`
+    FOREIGN KEY (`postid`)
+    REFERENCES `q2a`.`qa_posts` (`postid`)
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION)
+COMMENT = 'challenge table which maps question post as challenge';
+
+	    */
     }
 
     public function create_challenge(){}
